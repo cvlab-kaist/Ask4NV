@@ -427,7 +427,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <div class="nav-bar"><div class="container nav-container">
   <a class="brand" href="#first-content">Ask4NV</a>
-  <div class="menu"><a href="#method">Method</a><a href="#compare">Qualitative</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
+  <div class="menu"><a href="#compare">Qualitative</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
 </div></div>
 
 <!-- ============ Hero (shikun.io blog-title) ============ -->
@@ -462,37 +462,6 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 </div>
 
 <!-- ============ Introduction ============ -->
-<!-- ============ Method ============ -->
-<div class="container blog main" id="method">
-  <h1>Method</h1>
-</div>
-<div class="container blog wide">
-  <div class="method-steps" role="tablist" aria-label="method steps">
-    <button class="step" role="tab" data-step="1" aria-selected="true"><span class="step-number">01</span><span class="step-title">Camera-aware tokens</span><span class="step-description">Plücker rays enter both the VAE and the ViT tokens, for source and target views.</span></button>
-    <button class="step" role="tab" data-step="2" aria-selected="false"><span class="step-number">02</span><span class="step-title">MoT transformer</span><span class="step-description">Generation and understanding transformers with separate weights, coupled by joint self-attention.</span></button>
-    <button class="step" role="tab" data-step="3" aria-selected="false"><span class="step-number">03</span><span class="step-title">Modality-aware mask &amp; losses</span><span class="step-description">Bidirectional VAE attention; flow matching plus QA and grounding objectives.</span></button>
-  </div>
-  <div class="card figcard xl archcard">
-    <div class="arch" id="arch" data-active="1">
-      <img class="al a1" src="assets/figs/arch_step1.png" alt="Step 1: camera-aware visual encoding">
-      <img class="al a2" src="assets/figs/arch_step2.png" alt="Step 2: Mixture-of-Transformers with joint self-attention">
-      <img class="al a3" src="assets/figs/arch_step3.png" alt="Step 3: modality-aware attention mask">
-    </div>
-  </div>
-</div>
-
-<!-- ============ Qualitative comparison (built from the raw outputs, N=4 main setting) ============ -->
-<div class="container blog main" id="compare">
-  <h2>Qualitative comparison</h2>
-</div>
-<div class="container blog wide">
-  <div class="card ss" id="gallery-card" tabindex="0">
-    <div class="qscenes" id="qscenes"></div>
-    <div class="qctrl"><div class="qgroup"><span class="qlab">compare with</span><div class="pills" id="qbase"></div></div><span class="ss-count" id="ss-count"></span></div>
-    <div class="qwrap"><div class="qside" id="qside"></div><div class="q2" id="gallery"></div></div>
-  </div>
-</div>
-
 <!-- ============ Results ============ -->
 <div class="container blog main" id="results">
   <h1>Results</h1>
@@ -504,6 +473,15 @@ footer p{font-size:.85em;color:var(--ink-soft)}
     <div class="radar-row" id="radar-row"></div>
   </div>
 </div>
+<!-- ============ Qualitative comparison (built from the raw outputs, N=4 main setting) ============ -->
+<div class="container blog wide" id="compare">
+  <div class="card ss" id="gallery-card" tabindex="0">
+    <div class="qscenes" id="qscenes"></div>
+    <div class="qctrl"><div class="qgroup"><span class="qlab">compare with</span><div class="pills" id="qbase"></div></div><span class="ss-count" id="ss-count"></span></div>
+    <div class="qwrap"><div class="qside" id="qside"></div><div class="q2" id="gallery"></div></div>
+  </div>
+</div>
+
 <!-- ============ Analysis ============ -->
 <div class="container blog main" id="analysis">
   <h1>Why does joint training help?</h1>
@@ -754,14 +732,6 @@ footer p{font-size:.85em;color:var(--ink-soft)}
     draw();
   })();
 
-  // ---------- method steps: click a step to light up its panel of the architecture figure ----------
-  (function(){
-    const arch = $("arch"), btns = document.querySelectorAll(".method-steps .step");
-    // the three staged figures (arch_step1..3.png) build the architecture up step by step
-    function show(k){ arch.dataset.active = k; btns.forEach(b => b.setAttribute("aria-selected", b.dataset.step === String(k))); }
-    btns.forEach(b => { b.onclick = () => show(b.dataset.step); });
-    show(1);
-  })();
 
 
   // ---------- correspondence examples: pick a scene, see the three models' layer-26 similarity maps for its query token ----------
