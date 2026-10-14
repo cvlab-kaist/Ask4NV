@@ -24,7 +24,7 @@ b{font-weight:600}
 ::selection{color:#fff;background:#353535}
 h1,h2,h3{margin:0;line-height:1.2;font-family:var(--sans)}
 h1{font-size:36px;font-weight:700;padding:1em 0}
-h1.title{font-weight:500;font-size:clamp(26px,3.2vw,42px);padding:0 0 .8em;text-wrap:balance}
+h1.title{font-weight:700;font-size:clamp(28px,3.4vw,46px);padding:0 0 .8em;text-wrap:balance;letter-spacing:-.01em}
 h2{font-size:24px;font-weight:700;padding:1em 0}
 h3{font-size:18px;font-weight:700;padding:1em 0 .2em;font-style:italic;letter-spacing:1px}
 p{margin:0}
@@ -75,12 +75,12 @@ span.info{letter-spacing:1px;text-transform:uppercase;font-weight:700;font-size:
 @media (max-width:769px){.blog-title{grid-template-columns:1fr}}
 .blog-intro{display:flex;flex-direction:column;justify-content:space-between;padding:5vh 0}
 .blog-intro p{font-weight:500;padding:1em 0}
-.blog-intro p.author{padding:4px 0;font-style:italic;line-height:1.3}
+.blog-intro p.author{padding:4px 0;font-style:italic;line-height:1.45;font-size:1.05em}
 .blog-intro p.author sup{font-size:.65em;position:relative;top:-.5em;font-style:normal}
 .blog-intro p.author a{color:#2b6be0;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .blog-intro p.author a:hover{color:var(--ours)}
-.blog-intro p.affil{padding:.2em 0 1em;font-style:normal;font-weight:400;color:var(--ink-soft);font-size:.92em}
-.blog-intro p.abstract{font-family:var(--serif);font-weight:400}
+.blog-intro p.affil{padding:.2em 0 1em;font-style:normal;font-weight:400;color:var(--ink-soft);font-size:1em}
+.blog-intro p.abstract{font-family:var(--serif);font-weight:400;font-size:1.12em;line-height:1.6}
 .blog-intro .link{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:1em}
 .blog-intro .info p{padding:0;letter-spacing:1px;text-transform:uppercase;font-weight:600;font-size:.95em}
 .blog-cover{position:relative;display:flex;align-items:center;justify-content:flex-end;padding:5vh 0}
@@ -91,7 +91,7 @@ span.info{letter-spacing:1px;text-transform:uppercase;font-weight:700;font-size:
 .blog-title.single .blog-intro{align-items:flex-start;padding:4vh 0 3vh}
 .blog-title.single .blog-intro>div{max-width:var(--col)}
 .blog-title.single .link{justify-content:flex-start}
-h1.title.oneline{white-space:nowrap;font-size:clamp(22px,3vw,42px);padding-bottom:.6em;line-height:1.2}
+h1.title.oneline{white-space:nowrap;font-size:clamp(26px,3.3vw,46px);padding-bottom:.6em;line-height:1.18}
 @media (max-width:769px){h1.title.oneline{white-space:normal;font-size:24px}h1.title.oneline br{display:none}}
 /* buttons & selects (shikun.io .button / .select-container) */
 .button,button.button{background:var(--chip);border:0;border-radius:10px;padding:.75em 1em;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-size:.7em;font-weight:700;font-family:var(--sans);letter-spacing:.075em;text-decoration:none;text-transform:uppercase;user-select:none}
