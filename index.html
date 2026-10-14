@@ -11,11 +11,25 @@
 /* ---- Kaleido-style tokens (shikun.io): light page, #353535 ink, gray bands, sans headings + serif body ---- */
 :root{
   --ink:#353535; --ink-soft:#6b6b6b; --paper:#ffffff; --band:#f6f6f6; --chip:#ececec; --foot:#fafafa; --line:rgba(0,0,0,.1);
-  --accent:#ff9800; --ours:#e5383b; --src:#2b6be0;
+  --accent:#ff9800; --ours:#e5383b; --src:#2b6be0; --card:#ffffff; --ours-bg:#fdeeee; --img-bg:#ffffff;
   --sans:"Figtree","Athletics",ui-sans-serif,system-ui,sans-serif; --serif:"Source Serif 4","Tiempos Text",Georgia,serif; --mono:"Fira Code",ui-monospace,monospace;
   color-scheme:light;
 }
 *{box-sizing:border-box}
+
+:root[data-theme="dark"]{--ink:#e7e7ec;--ink-soft:#a6a6b2;--paper:#121216;--band:#1b1b21;--chip:#2b2b34;--foot:#17171c;--line:rgba(255,255,255,.13);--card:#1d1d24;--ours-bg:#3b2024;--src:#6b9bff;
+  --shadow:0 10px 25px -5px rgba(0,0,0,.5),0 8px 10px -6px rgba(0,0,0,.5);--shadow-hover:0 20px 30px -5px rgba(0,0,0,.6),0 15px 15px -5px rgba(0,0,0,.5)}
+:root[data-theme="dark"] #first-content::before{background:
+    radial-gradient(circle at 62% 45%, #5a2636 0%, #3a1c27 38%, rgba(58,28,39,0) 72%),
+    linear-gradient(120deg, #1f2642 0%, #1a1d30 45%, rgba(26,29,48,0) 100%),
+    linear-gradient(205deg, #2a2140 10%, #1e1a30 40%, rgba(30,26,48,0) 80%),
+    #15151b;background-blend-mode:normal}
+:root[data-theme="dark"] .blog-intro p.author a{color:#8fb3ff}
+:root[data-theme="dark"] .mviews img{background:#2b2b34}
+:root[data-theme="dark"] .mscene img,:root[data-theme="dark"] .corr-grid img,:root[data-theme="dark"] .qimg img{background:#fff;border-radius:8px}
+:root[data-theme="dark"] .gallery .cell.cam,:root[data-theme="dark"] .qside .cam,:root[data-theme="dark"] .q2 .side .cam{background:var(--img-bg)}
+:root[data-theme="dark"] .pills button[aria-pressed="true"],:root[data-theme="dark"] .dsnav .pills button[aria-pressed="true"]{background:#e7e7ec;border-color:#e7e7ec;color:#121216}
+.nav-bar .theme{font:inherit;font-size:1.15em;line-height:1;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow)}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img,video{display:block;width:100%;margin:0 auto}
@@ -207,7 +221,7 @@ figure.plain img{background:#fff;border-radius:4px}
 
 /* ===== MV-TAP style floating media cards ===== */
 :root{--shadow:0 10px 25px -5px rgba(0,0,0,.10),0 8px 10px -6px rgba(0,0,0,.10);--shadow-hover:0 20px 30px -5px rgba(0,0,0,.22),0 15px 15px -5px rgba(0,0,0,.12)}
-.card{background:#fff;border-radius:12px;padding:1rem 1rem .6rem;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;margin:1rem 0 1.5rem}
+.card{background:var(--card);border-radius:12px;padding:1rem 1rem .6rem;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;margin:1rem 0 1.5rem}
 .card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
 .card figure.plain img{padding-bottom:0;border-radius:8px}
 .card p.caption{padding:.9em .3rem .2em;text-align:left;font-size:.92em;color:var(--ink-soft);border-top:1px solid var(--line);margin-top:.6em}
@@ -315,7 +329,7 @@ button.step[aria-selected="true"]{border-color:var(--ours);background:#fdf1f1;bo
 .qgroup{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .qlab{font-size:.78em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .pills{display:flex;gap:6px;flex-wrap:wrap}
-.pills button{font:inherit;font-size:.82em;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--line2);background:#fff;color:var(--ink);cursor:pointer}
+.pills button{font:inherit;font-size:.82em;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--line2);background:var(--card);color:var(--ink);cursor:pointer}
 .pills button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .qwrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:16px;align-items:stretch}
 @media (max-width:900px){.qwrap{grid-template-columns:1fr}}
@@ -328,7 +342,7 @@ button.step[aria-selected="true"]{border-color:var(--ours);background:#fdf1f1;bo
 .qscenes button[aria-pressed="true"]{border-color:var(--ours)}
 .qctrl .ss-count{margin-left:auto;align-self:center}
 .qside{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:8px;min-height:0}
-.qside .blk.camblk{display:flex;flex-direction:column;min-height:0}
+.qside .blk.camblk{display:flex;flex-direction:column;justify-content:center;min-height:0}
 .qside .blk{position:relative;border-radius:10px;overflow:hidden}
 .qside .srcs,.qside .gts{display:grid;grid-template-columns:1fr 1fr;gap:5px}
 .qside .srcs img,.qside .gts img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block}
@@ -410,7 +424,7 @@ table.res th.grp{text-align:center}
 table.res td.l,table.res th.l{text-align:left}
 table.res td.num{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.95em}
 table.res td.sep,table.res th.sep{border-left:1px solid var(--line)}
-table.res tr.ours td{background:#fdeeee}
+table.res tr.ours td{background:var(--ours-bg)}
 table.res tr.ours td.l{font-weight:700}
 table.res td.ds{font-weight:700;vertical-align:top;background:var(--band);border-right:1px solid var(--line);text-align:left;width:1%;white-space:nowrap;padding-right:14px}
 table.res th[rowspan]{vertical-align:middle}
@@ -443,10 +457,10 @@ table.res tr.grp-row td{color:var(--ink-soft);font-style:italic;font-size:.85em;
 .mcap{font-family:var(--serif);font-size:1.02em;line-height:1.5}
 .mcap b{color:var(--c)}
 .mnav{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.95em;color:var(--ink-soft);white-space:nowrap}
-.mnav button{font:inherit;font-size:1.3em;line-height:1;width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.mnav button{font:inherit;font-size:1.3em;line-height:1;width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .mnav button:hover{border-color:var(--c);color:var(--c)}
 .dsnav{display:flex;align-items:center;gap:10px;padding:.3rem .2rem .6rem;border-bottom:1px solid var(--line);margin-bottom:.4rem}
-.dsnav button{font:inherit;font-size:1.25em;line-height:1;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.dsnav button{font:inherit;font-size:1.25em;line-height:1;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .dsnav button:hover{border-color:var(--ours);color:var(--ours)}
 .dsnav .pills{display:flex;gap:6px;flex-wrap:wrap}
 .dsnav .pills button{width:auto;height:auto;font-size:.92em;font-weight:700;border-radius:999px;padding:.35em .9em}
@@ -464,7 +478,7 @@ table.res sup{font-size:.7em;line-height:0}
 table.res.big th,table.res.big td{padding:8px 14px}
 .blog.wide p.caption,.blog.main p.caption{padding:.7em .2rem .2em;font-size:.95em;line-height:1.4;color:var(--ink-soft)}
 .blog.wide p.caption b,.blog.main p.caption b{color:var(--ink)}
-.finding{font-family:var(--sans);font-weight:700;font-size:1.08em;padding:.9em 1.1em;border-left:4px solid var(--ours);background:#fdeeee;border-radius:0 6px 6px 0;margin:1em 0 .2em}
+.finding{font-family:var(--sans);font-weight:700;font-size:1.08em;padding:.9em 1.1em;border-left:4px solid var(--ours);background:var(--ours-bg);border-radius:0 6px 6px 0;margin:1em 0 .2em}
 .roadmap{font-family:var(--serif);font-size:1.02em;padding:.2em 0 0 1.4em;margin:0}
 .roadmap li{padding:.45em 0 .45em .3em}
 .roadmap li span{display:block;font-family:var(--sans);font-weight:700;margin-bottom:.15em}
@@ -484,7 +498,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <div class="nav-bar"><div class="container nav-container">
   <a class="brand" href="#first-content">Ask4NV</a>
-  <div class="menu"><a href="#motiv">Motivation</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
+  <button class="theme" id="theme-btn" aria-label="toggle dark mode" title="dark / light">&#9790;</button>
 </div></div>
 
 <!-- ============ Hero (shikun.io blog-title) ============ -->
@@ -595,6 +609,9 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <footer><div class="container"><p>Baseline outputs (Matrix3D, CAMEO, CAT3D, NVComposer, Omni-View) were produced with the authors' released code under identical source views and target poses. All images are for research demonstration only.</p></div></footer>
 
+<script>(function(){var r=document.documentElement,k="ask4nv-theme";try{var t=localStorage.getItem(k);if(t)r.setAttribute("data-theme",t);}catch(e){}
+document.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("theme-btn");if(!b)return;function paint(){b.innerHTML=r.getAttribute("data-theme")==="dark"?"&#9788;":"&#9790;";}paint();
+b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"?"light":"dark";r.setAttribute("data-theme",d);try{localStorage.setItem(k,d);}catch(e){}paint();};});})();</script>
 <script src="assets/manifest.js"></script>
 <script src="assets/corr.js"></script>
 <script>
