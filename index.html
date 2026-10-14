@@ -210,7 +210,9 @@ figure.plain img{background:#fff;border-radius:4px}
 .card{background:#fff;border-radius:12px;padding:1rem 1rem .6rem;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;margin:1rem 0 1.5rem}
 .card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
 .card figure.plain img{padding-bottom:0;border-radius:8px}
-.card p.caption{padding:.8em .5rem .4em;text-align:left}
+.card p.caption{padding:.9em .3rem .2em;text-align:left;font-size:.92em;color:var(--ink-soft);border-top:1px solid var(--line);margin-top:.6em}
+.card p.caption b{color:var(--ink)}
+.card p.caption .sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin:0 5px 0 2px;vertical-align:-1px}
 .card.figcard,.card.figcard.sm,.card.figcard.md,.card.figcard.xl{max-width:var(--col)}
 .blog.wide .card.figcard figure.plain,.card.figcard p.caption{max-width:100%;margin:0}
 .card .tbl{padding:0}
@@ -334,8 +336,8 @@ button.step[aria-selected="true"]{border-color:var(--ours);background:#fdf1f1;bo
 .qside .cam{background:#fff;border:1px solid var(--line);border-radius:10px;flex:1;min-height:0;position:relative}
 .qside .cam img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6px;display:block}
 .qside .slab{font-size:.78em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:2px 0 5px;display:flex;justify-content:space-between;align-items:center}
-.qside .slab .legend{font-weight:600;letter-spacing:0;text-transform:none;font-size:.9em}
-.qside .slab .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 3px 0 7px;vertical-align:-1px}
+.qside .slab .legend{display:inline-flex;align-items:center;gap:10px;padding:0;font-weight:600;letter-spacing:0;text-transform:none;font-size:.9em}
+.qside .slab .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px 0 0;vertical-align:0}
 .qside .gts .num{position:relative}
 .qside .gts .num span{position:absolute;left:5px;top:5px;font-size:.7em;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:1px 7px;border-radius:999px}
 .q2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -406,7 +408,7 @@ table.res th,table.res td{padding:6px 10px;text-align:right;border-bottom:1px so
 table.res th{font-weight:700;font-size:.85em;background:var(--chip);letter-spacing:.02em}
 table.res th.grp{text-align:center}
 table.res td.l,table.res th.l{text-align:left}
-table.res td.num{font-family:var(--mono);font-size:.86em}
+table.res td.num{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:.95em}
 table.res td.sep,table.res th.sep{border-left:1px solid var(--line)}
 table.res tr.ours td{background:#fdeeee}
 table.res tr.ours td.l{font-weight:700}
@@ -415,6 +417,53 @@ table.res th[rowspan]{vertical-align:middle}
 table.res tr.ours td.ds{background:var(--band)}
 table.res b{font-weight:700}table.res u{text-decoration:underline;text-underline-offset:2px}
 table.res tr.grp-row td{color:var(--ink-soft);font-style:italic;font-size:.85em;text-align:left}
+
+/* motivation (one example at a time) */
+.motiv{padding:1.1rem 1.4rem .9rem}
+.mgrid2{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;max-width:1040px;margin:0 auto}
+@media (max-width:900px){.mgrid2{grid-template-columns:1fr;gap:20px}}
+.mleft{display:flex;flex-direction:column;gap:16px}
+.ph{font-size:.82em;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:.5em}
+.mscene .ph{text-align:center}
+.mblock{border:1.5px solid var(--line);border-radius:12px;padding:.85rem 1rem .95rem}
+.mblock .ph{padding-bottom:.55em}
+.ph.gen{color:#c73d6e}.ph.und{color:#6f55a8}
+.mviews .hd{display:grid;grid-template-columns:2fr auto 2fr;gap:0 10px;text-align:center;font-size:.68em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:4px}
+.mviews .hd span:last-child{text-align:center}
+.mviews .g{display:grid;grid-template-columns:1fr 1fr auto 1fr 1fr;gap:6px;align-items:center}
+.mviews .arr{font-size:1.5em;line-height:1;color:var(--ink-soft);padding:0 2px}
+.mviews img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px;display:block;background:#eee}
+.mqa{font-family:var(--serif);font-size:1.02em;line-height:1.4;display:flex;flex-direction:column;gap:8px}
+.mqa .line{display:flex;gap:.6em;align-items:baseline;padding:.1em 0}
+.mqa .lab{font-family:var(--sans);font-weight:800;color:var(--ink);font-size:.8em;flex:none}
+.mqa em{font-style:normal;font-weight:700;color:var(--c)}
+.mscene img{width:100%;height:auto;display:block}
+.mfoot{display:flex;justify-content:flex-end;border-top:1px solid var(--line);margin:14px auto 0;padding-top:.6em;max-width:1040px}
+.mcap{border-top:1px solid var(--line);padding-top:.7em}
+.mcap{font-family:var(--serif);font-size:1.02em;line-height:1.5}
+.mcap b{color:var(--c)}
+.mnav{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.95em;color:var(--ink-soft);white-space:nowrap}
+.mnav button{font:inherit;font-size:1.3em;line-height:1;width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.mnav button:hover{border-color:var(--c);color:var(--c)}
+.dsnav{display:flex;align-items:center;gap:10px;padding:.3rem .2rem .6rem;border-bottom:1px solid var(--line);margin-bottom:.4rem}
+.dsnav button{font:inherit;font-size:1.25em;line-height:1;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.dsnav button:hover{border-color:var(--ours);color:var(--ours)}
+.dsnav .pills{display:flex;gap:6px;flex-wrap:wrap}
+.dsnav .pills button{width:auto;height:auto;font-size:.92em;font-weight:700;border-radius:999px;padding:.35em .9em}
+.dsnav .pills button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.dsnav .dsdom{margin-left:auto;font-size:.85em;color:var(--ink-soft);font-weight:700}
+.figtitle{font-family:var(--sans);font-weight:700;font-size:1.05em;padding:.9em .2rem .45em}
+.figtitle span{color:var(--ink-soft);font-weight:500;font-size:.9em;margin-left:.5em}
+h1 em{font-style:normal;color:var(--ours)}
+h2.sub{font-size:1.4em;font-weight:700;padding:.9em 0 .1em}
+table.res.big{font-size:1em}
+table.res.big th{font-size:.88em}
+table.res.big td.num{font-size:1em}
+table.res.big td.num u{text-decoration:underline;text-underline-offset:3px}
+table.res sup{font-size:.7em;line-height:0}
+table.res.big th,table.res.big td{padding:8px 14px}
+.blog.wide p.caption,.blog.main p.caption{padding:.7em .2rem .2em;font-size:.95em;line-height:1.4;color:var(--ink-soft)}
+.blog.wide p.caption b,.blog.main p.caption b{color:var(--ink)}
 .finding{font-family:var(--sans);font-weight:700;font-size:1.08em;padding:.9em 1.1em;border-left:4px solid var(--ours);background:#fdeeee;border-radius:0 6px 6px 0;margin:1em 0 .2em}
 .roadmap{font-family:var(--serif);font-size:1.02em;padding:.2em 0 0 1.4em;margin:0}
 .roadmap li{padding:.45em 0 .45em .3em}
@@ -435,7 +484,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <div class="nav-bar"><div class="container nav-container">
   <a class="brand" href="#first-content">Ask4NV</a>
-  <div class="menu"><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
+  <div class="menu"><a href="#motiv">Motivation</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
 </div></div>
 
 <!-- ============ Hero (shikun.io blog-title) ============ -->
@@ -460,29 +509,44 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   </div>
 </div>
 
-<!-- ============ Video placeholder ============ -->
-<div class="container blog wide first">
-  <div class="card vidcard ovcard">
-    <video controls autoplay muted loop playsinline preload="auto" poster="assets/video/overview_poster.jpg" aria-label="Overview video: framework and findings">
-      <source src="assets/video/overview.mp4" type="video/mp4">
-    </video>
+<!-- ============ Overview + motivation ============ -->
+<div class="container blog main first" id="overview">
+  <p class="text lead"><b>Learning to answer spatial questions makes a generative model render better novel views.</b> <b>Ask4NV</b> is a framework that trains novel-view generation jointly with 3D language understanding, so that spatial question answering and grounding supervise the generation model.</p>
+  <h1>Motivation</h1>
+  <p class="text">Novel-view generation methods rely on fine-grained geometric cues such as depth-based warping and cross-view correspondence. These cues capture scene structure, but not the <b>high-level scene properties</b> that also determine how a scene should look from a new viewpoint: object identities, attributes, and inter-object relationships. <b>3D language understanding learns exactly these properties</b>, by answering questions about objects and their spatial relations. We therefore ask whether learning to answer spatial questions can supervise novel-view generation.</p>
+</div>
+<div class="container blog wide" id="motiv">
+  <div class="figtitle">Shared scene properties across 3D language understanding and novel-view generation</div>
+  <div class="card motiv" style="--c:#e5383b">
+    <div class="mgrid2">
+      <div class="mleft">
+        <div class="mblock"><div class="ph gen">Novel-view generation</div><div class="mviews" id="mviews"></div></div>
+        <div class="mblock"><div class="ph und">3D language understanding</div><div class="mqa" id="mqa"></div></div>
+        <div class="mcap" id="mcap"></div>
+      </div>
+      <div class="mscene"><div class="ph">Shared 3D scene</div><img id="mscene" alt="shared 3D scene with the object the example is about"></div>
+    </div>
+    <div class="mfoot"><div class="mnav"><button id="mprev" aria-label="previous example">&#8249;</button><span id="mcount"></span><button id="mnext" aria-label="next example">&#8250;</button></div></div>
+    <p class="caption">Questions about object categories, attributes, and spatial relationships address the same scene properties that should be represented in novel views.</p>
   </div>
 </div>
 
 <!-- ============ Results ============ -->
 <div class="container blog main" id="results">
-  <p class="text lead"><b>Learning to answer spatial questions makes a generative model render better novel views.</b> <b>Ask4NV</b> is a framework that trains novel-view generation jointly with 3D language understanding, so that spatial question answering and grounding supervise the generation model.</p>
-  <h1>1. Does it generate better views?</h1>
+  <h1>1. Does it <em>improve novel-view generation</em>?</h1>
   <p class="text intent">If spatial supervision helps, it has to show first as <b>better novel views</b>, and not only on the training distribution. We compare against task-specific novel-view generators and a unified multimodal baseline, in and out of domain.</p>
   <div class="finding"><span>Finding 1</span>Ask4NV improves novel-view image quality across multiple benchmarks.</div>
   <p class="text">Four source views, four target views, on DL3DV and ScanNet (in domain) and RE10K and ScanNet++ (out of domain), against CAT3D, Matrix3D, NVComposer, CAMEO, and Omni-View. PSNR, SSIM, and LPIPS measure image fidelity; camera-pose error and MEt3R measure 3D consistency. Ask4NV has the <b>best PSNR and LPIPS on all four datasets</b> and the best pose accuracy, and the <b>out-of-domain gains</b> show that the improvement generalizes.</p>
 </div>
 <div class="container blog wide">
-  <div class="card chartcard" id="radar-card">
-    <div class="chart-legend" id="radar-legend"></div>
-    <div class="radar-row" id="radar-row"></div>
+  <div class="figtitle">Novel-view generation on four benchmarks</div>
+  <div class="card tblcard" id="nvs-card">
+    <div class="dsnav"><button id="ds-prev" aria-label="previous dataset">&#8249;</button><div class="pills" id="ds-pills"></div><button id="ds-next" aria-label="next dataset">&#8250;</button></div>
+    <div class="tbl"><table class="res big" id="tab-nvs"></table></div>
+    <p class="caption"><b>Bold</b> best, <u>underline</u> second; <sup>&dagger;</sup> reproduced CAT3D.</p>
   </div>
 </div>
+<div class="container blog main"><h2 class="sub">Qualitative comparison</h2></div>
 <!-- ============ Qualitative comparison (built from the raw outputs, N=4 main setting) ============ -->
 <div class="container blog wide" id="compare">
   <div class="card ss" id="gallery-card" tabindex="0">
@@ -494,27 +558,33 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <!-- ============ Analysis ============ -->
 <div class="container blog main" id="analysis">
-  <h1>2. What does 3D language supervision improve inside the generation transformer?</h1>
+  <h1>2. What does <em>3D language supervision improve</em> inside the generation transformer?</h1>
   <p class="text intent">The understanding objectives are losses on language: answering spatial questions and grounding objects. We ask whether they nonetheless change the <b>spatial representations the generation transformer builds for its VAE latent tokens</b>, measured by cross-view correspondence, which is never supervised during training.</p>
   <div class="finding"><span>Finding 2</span>3D language supervision improves cross-view correspondence in VAE representations.</div>
   <p class="text"><b>Lance-FT</b> is the same Lance checkpoint fine-tuned on novel-view generation only. In a two-view setting we take clean VAE tokens after attention at each layer, match every object token to its most similar token in the other view, and score with PCK@1/2/4. Layer 26 gives the strongest correspondence for both models, and Ask4NV <b>outperforms Lance-FT on both datasets at every threshold</b>. Correspondence in these VAE representations improves <b>without any direct correspondence supervision</b>: the benefit of 3D language understanding reaches the spatial representations used for generation.</p>
 </div>
 <div class="container blog wide">
-  <div class="card chartcard pckcard"><div class="pck-legend"><span><i style="background:#e5383b"></i>Ask4NV</span><span><i style="background:#8a8da0"></i>Lance-FT</span><span><i class="dash"></i>layer 26</span></div><div class="pck-row" id="pck-row"></div></div>
+  <div class="figtitle">Cross-view correspondence by layer</div>
+  <div class="card chartcard pckcard"><div class="pck-legend"><span><i style="background:#e5383b"></i>Ask4NV</span><span><i style="background:#8a8da0"></i>Lance-FT</span><span><i class="dash"></i>layer 26</span></div><div class="pck-row" id="pck-row"></div><p class="caption">Correspondence score of VAE-token matches between two views, at every transformer layer. <i class="sw" style="background:#e5383b"></i><b>Ask4NV</b>, <i class="sw" style="background:#8a8da0"></i><b>Lance-FT</b>.</p></div>
+  <div class="figtitle">Cross-view correspondence at layer 26</div>
+  <div class="card tblcard"><div class="tbl"><table class="res big" id="tab-corr"></table></div></div>
+  <div class="figtitle">Attention-feature similarity maps at layer 26</div>
   <div class="card corrcard" id="corr-card">
     <div class="corr-scenes" id="corr-scenes"></div>
     <div class="corr-wrap">
-      <div class="corr-q"><div class="slab">Query view · query token in red</div><div class="qimg"><img id="corr-query" alt="query view"></div></div>
+      <div class="corr-q"><div class="slab">Query view · query point in red</div><div class="qimg"><img id="corr-query" alt="query view"></div></div>
       <div class="corr-grid" id="corr-grid"></div>
     </div>
+    <p class="caption">For the query point (<span style="color:#e5383b;font-weight:700">red</span>) in the query view, the similarity of every location in the other view.</p>
   </div>
 </div>
 <div class="container blog main">
-  <h1>3. Does joint training make generated views closer to the ground truth in a 3D-aware feature space?</h1>
+  <h1>3. Does joint training make generated views <em>closer to the ground truth in a 3D-aware feature space</em>?</h1>
   <p class="text intent">We ask whether joint training also brings the generated views closer to the ground truth in a <b>3D-aware representation space</b>: the feature space of an encoder trained for 3D language understanding, which encodes object identities, attributes, and spatial layout.</p>
   <div class="finding"><span>Finding 3</span>Joint training improves similarity in a 3D-aware feature space.</div>
   <p class="text">The encoder is the SigLIP vision encoder fine-tuned for 3D language understanding inside Video-3D-LLM. We extract features of the generated and ground-truth views at the same target viewpoint and report the <b>mean cosine similarity between spatially corresponding patches</b>. Ask4NV is <b>higher than the generation-only baseline on all four datasets</b>, so joint training produces views that are more closely aligned with the ground truth in the feature space of a 3D language understanding encoder.</p>
-  <div class="card tblcard"><div class="tbl"><table class="res" id="tab-sim"></table></div></div>
+  <div class="figtitle">Patch-wise feature similarity to the ground truth</div>
+  <div class="card tblcard"><div class="tbl"><table class="res big" id="tab-sim"></table></div><p class="caption">Generated vs. ground-truth views in the 3D-tuned SigLIP space of Video-3D-LLM. Mean cosine similarity, higher is better.</p></div>
 </div>
 
 <!-- ============ Conclusion & BibTeX ============ -->
@@ -557,7 +627,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   // ---------- qualitative 2x2: Ask4NV vs one baseline, ground truth, sources + cameras ----------
   (function(){
     const st = ST[0]; const scenes = []; st.datasets.forEach(g => g.scenes.forEach(s => scenes.push({g, s})));
-    const bases = ["matrix-3d","cameo","cat3d","omni-view"].filter(m => st.methods.includes(m));
+    const bases = ["omni-view","matrix-3d","cameo","cat3d"].filter(m => st.methods.includes(m));
     const G = {si: 0, base: bases[0], ti: 0};
     const gal = $("gallery"), count = $("ss-count"), qb = $("qbase"), qs = $("qscenes");
     qs.innerHTML = scenes.map((e, i) => `<button data-i="${i}" title="${e.g.title} · ${e.s.id}"><img src="${P(st, e.g, e.s, "gt", 0)}" alt="${e.s.id}" loading="lazy"></button>`).join("");
@@ -570,11 +640,11 @@ footer p{font-size:.85em;color:var(--ink-soft)}
       const srcs = Array.from({length: s.nsrc}, (_, k) => `<img src="${SP(st, g, s, k)}" alt="source ${k+1}">`).join("");
       const gts = Array.from({length: s.ntgt}, (_, k) => `<div class="num"><img src="${P(st, g, s, "gt", k)}" alt="ground truth ${k+1}"><span>${k+1}</span></div>`).join("");
       $("qside").innerHTML = `<div class="blk"><div class="slab">Source views</div><div class="srcs">${srcs}</div></div>` +
-        (s.traj ? `<div class="blk camblk"><div class="slab">Cameras <span class="legend"><i style="background:#2b6be0"></i>source<i style="background:#e5383b"></i>target</span></div><div class="cam"><img src="${A(`assets/qual/${st.key}/${g.key}/${s.id}/camera.png`)}" alt="camera trajectory"></div></div>` : "") +
+        (s.traj ? `<div class="blk camblk"><div class="slab">Cameras <span class="legend"><span><i style="background:#2b6be0"></i>source</span><span><i style="background:#e5383b"></i>target</span></span></div><div class="cam"><img src="${A(`assets/qual/${st.key}/${g.key}/${s.id}/camera.png`)}" alt="camera trajectory"></div></div>` : "") +
         `<div class="blk"><div class="slab">Ground truth</div><div class="gts">${gts}</div></div>`;
       gal.innerHTML = Array.from({length: s.ntgt}, (_, j) => `<div class="qcell cell wipe split" data-rest="50%" style="--x:50%" title="move the cursor to slide the split"><img class="b" src="${P(st, g, s, G.base, j)}" alt="${LBL[G.base]} target ${j+1}"><img class="o" src="${P(st, g, s, "ours", j)}" alt="Ask4NV target ${j+1}"><i class="bar"></i><span class="qtag ours">Ask4NV</span><span class="qtag r">${LBL[G.base]}</span><span class="qnum">target ${j+1}</span></div>`).join("");
       db.forEach(d => d.setAttribute("aria-pressed", +d.dataset.i === G.si));
-      count.textContent = `${G.si+1} / ${scenes.length} · ${g.title} · ${DOMAIN[g.key]}`;
+      count.textContent = `${G.si+1} / ${scenes.length} · ${g.title}`;
       bases.forEach(m => { for (let k = 0; k < s.ntgt; k++) new Image().src = P(st, g, s, m, k); });
     }
     $("gallery-card").addEventListener("keydown", e => { if (e.key === "ArrowLeft") { G.si = (G.si - 1 + scenes.length) % scenes.length; render(); } if (e.key === "ArrowRight") { G.si = (G.si + 1) % scenes.length; render(); } });
@@ -594,28 +664,28 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   const H2 = [{t:"Dataset",cls:"l",attr:'rowspan="2"'},{t:"Method",cls:"l",attr:'rowspan="2"'},{t:"2D metrics",cls:"grp sep",attr:'colspan="3"'},{t:"3D metrics",cls:"grp sep",attr:'colspan="4"'}];
   const H2b = [{t:"PSNR ↑",cls:"sep"},{t:"SSIM ↑"},{t:"LPIPS ↓"},{t:"ATE ↓",cls:"sep"},{t:"RPE<sub>r</sub> ↓"},{t:"RPE<sub>t</sub> ↓"},{t:"MEt3R ↓"}];
   const nvs = [
-    {ds:"DL3DV",dsSpan:7,m:"CAT3D†",v:["12.662","0.287","0.489","0.777","15.59","1.674","0.446"]},
+    {ds:"DL3DV",dsSpan:7,m:"CAT3D<sup>&dagger;</sup>",v:["12.662","0.287","0.489","0.777","15.59","1.674","0.446"]},
     {m:"Matrix3D",v:["_13.997_","_0.344_","_0.412_","0.351","4.80","0.691","_0.358_"]},
     {m:"NVComposer",v:["11.532","0.255","0.560","0.995","32.34","1.748","0.511"]},
     {m:"CAMEO",v:["12.991","0.312","0.463","0.628","13.16","1.174","0.388"]},
     {m:"Omni-View",v:["13.009","0.221","0.558","1.226","27.86","2.514","0.511"]},
     {m:"Lance-FT",v:["13.291","0.297","0.432","_0.185_","_3.80_","_0.354_","0.361"]},
     {m:"Ask4NV (Ours)",ours:1,v:["**14.939**","**0.355**","**0.313**","**0.158**","**3.11**","**0.298**","**0.349**"]},
-    {ds:"ScanNet",dsSpan:7,m:"CAT3D†",v:["12.007","0.438","0.627","0.366","33.12","0.719","0.559"]},
+    {ds:"ScanNet",dsSpan:7,m:"CAT3D<sup>&dagger;</sup>",v:["12.007","0.438","0.627","0.366","33.12","0.719","0.559"]},
     {m:"Matrix3D",v:["_14.298_","_0.539_","_0.498_","_0.212_","20.37","0.431","0.417"]},
     {m:"NVComposer",v:["10.186","0.368","0.709","0.443","64.69","0.787","0.720"]},
     {m:"CAMEO",v:["12.417","0.485","0.605","0.343","32.86","0.734","0.492"]},
     {m:"Omni-View",v:["12.380","0.429","0.664","0.469","41.61","0.958","0.653"]},
     {m:"Lance-FT",v:["14.292","0.530","0.518","0.233","_15.45_","_0.351_","**0.398**"]},
     {m:"Ask4NV (Ours)",ours:1,v:["**15.747**","**0.564**","**0.434**","**0.191**","**13.85**","**0.340**","_0.413_"]},
-    {ds:"Re10K",dsSpan:7,m:"CAT3D†",v:["16.261","0.555","0.330","0.168","3.25","0.317","0.345"]},
+    {ds:"Re10K",dsSpan:7,m:"CAT3D<sup>&dagger;</sup>",v:["16.261","0.555","0.330","0.168","3.25","0.317","0.345"]},
     {m:"Matrix3D",v:["16.374","_0.566_","0.319","0.154","1.96","0.298","**0.303**"]},
     {m:"NVComposer",v:["12.716","0.439","0.551","0.507","21.40","0.819","0.416"]},
     {m:"CAMEO",v:["_16.664_","**0.577**","_0.301_","0.121","3.07","0.223","_0.312_"]},
     {m:"Omni-View",v:["13.408","0.371","0.566","0.871","18.82","1.657","0.536"]},
     {m:"Lance-FT",v:["14.548","0.494","0.432","_0.116_","_1.91_","_0.221_","0.328"]},
     {m:"Ask4NV (Ours)",ours:1,v:["**16.738**","0.562","**0.290**","**0.106**","**1.68**","**0.202**","0.319"]},
-    {ds:"ScanNet++",dsSpan:7,m:"CAT3D†",v:["11.940","0.475","0.627","0.480","54.42","1.138","0.572"]},
+    {ds:"ScanNet++",dsSpan:7,m:"CAT3D<sup>&dagger;</sup>",v:["11.940","0.475","0.627","0.480","54.42","1.138","0.572"]},
     {m:"Matrix3D",v:["_14.667_","**0.587**","_0.453_","**0.287**","**14.19**","0.661","**0.375**"]},
     {m:"NVComposer",v:["10.725","0.446","0.653","0.604","76.51","1.210","0.626"]},
     {m:"CAMEO",v:["12.544","0.532","0.590","0.511","48.86","1.046","0.433"]},
@@ -623,7 +693,18 @@ footer p{font-size:.85em;color:var(--ink-soft)}
     {m:"Lance-FT",v:["14.468","0.571","0.483","_0.301_","19.58","**0.612**","0.417"]},
     {m:"Ask4NV (Ours)",ours:1,v:["**15.242**","_0.583_","**0.419**","**0.287**","_16.54_","_0.649_","_0.398_"]},
   ];
-  table("tab-nvs", [H2, H2b], nvs, {sep:[0,3]});
+  (function(){
+    const H1 = [{t:"Method",cls:"l",attr:'rowspan="2"'},{t:"2D metrics",cls:"grp sep",attr:'colspan="3"'},{t:"3D metrics",cls:"grp sep",attr:'colspan="4"'}];
+    const DOM = {"DL3DV":"in domain","ScanNet":"in domain","Re10K":"out of domain","ScanNet++":"out of domain"};
+    const groups = []; nvs.forEach(r => { if (r.ds) groups.push({ds:r.ds, rows:[]}); groups[groups.length-1].rows.push({m:r.m, v:r.v, ours:r.ours}); });
+    let cur = 0; const pills = $("ds-pills"); if (!pills) return;
+    pills.innerHTML = groups.map((g,i) => `<button data-i="${i}">${g.ds}</button>`).join("");
+    pills.querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; draw(); });
+    $("ds-prev").onclick = () => { cur = (cur - 1 + groups.length) % groups.length; draw(); };
+    $("ds-next").onclick = () => { cur = (cur + 1) % groups.length; draw(); };
+    function draw(){ const g = groups[cur]; table("tab-nvs", [H1, H2b], g.rows, {sep:[0,3]}); pills.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.i === cur)); }
+    draw();
+  })();
 
   const qaH = [[{t:"Method",cls:"l"},{t:"Size"},{t:"SQA3D<sub>test</sub>",cls:"grp sep",attr:'colspan="2"'},{t:"ScanQA<sub>val</sub>",cls:"grp sep",attr:'colspan="5"'},{t:"ScanRefer<sub>val</sub>",cls:"grp sep",attr:'colspan="2"'},{t:"Multi3DRefer<sub>val</sub>",cls:"grp sep",attr:'colspan="2"'}],
     [{t:""},{t:""},{t:"EM",cls:"sep"},{t:"EM-R"},{t:"C",cls:"sep"},{t:"B-4"},{t:"M"},{t:"R"},{t:"EM"},{t:"Acc@0.25",cls:"sep"},{t:"Acc@0.5"},{t:"F1@0.25",cls:"sep"},{t:"F1@0.5"}]];
@@ -664,8 +745,8 @@ footer p{font-size:.85em;color:var(--ink-soft)}
      {m:"Bidirectional (Ours)",ours:1,v:["**14.939**","**0.355**","**0.313**","**0.158**","**3.11**","**0.120**","**0.349**"]}], {sep:[0,3]});
 
   table("tab-corr", [[{t:"Dataset",cls:"l"},{t:"Method",cls:"l"},{t:"PCK@1",cls:"sep"},{t:"PCK@2"},{t:"PCK@4"}]],
-    [{ds:"ScanNet",dsSpan:3,m:"Lance-FT",v:["30.30","42.03","58.22"]},{m:"Ask4NV (Ours)",ours:1,v:["**46.13**","**60.73**","**74.99**"]},
-     {ds:"ScanNet++",dsSpan:3,m:"Lance-FT",v:["33.34","44.31","60.28"]},{m:"Ask4NV (Ours)",ours:1,v:["**43.27**","**55.25**","**69.55**"]}], {sep:[0]});
+    [{ds:"ScanNet",dsSpan:2,m:"Lance-FT",v:["30.30","42.03","58.22"]},{m:"Ask4NV (Ours)",ours:1,v:["**46.13**","**60.73**","**74.99**"]},
+     {ds:"ScanNet++",dsSpan:2,m:"Lance-FT",v:["33.34","44.31","60.28"]},{m:"Ask4NV (Ours)",ours:1,v:["**43.27**","**55.25**","**69.55**"]}], {sep:[0]});
 
   table("tab-sim", [[{t:"Method",cls:"l"},{t:"DL3DV",cls:"sep"},{t:"ScanNet"},{t:"Re10K"},{t:"ScanNet++"}]],
     [{m:"Lance-FT",v:["0.512","0.498","0.580","0.514"]},{m:"Ask4NV (Ours)",ours:1,v:["**0.599**","**0.557**","**0.680**","**0.557**"]}], {sep:[0]});
@@ -716,36 +797,29 @@ footer p{font-size:.85em;color:var(--ink-soft)}
     {m:"Ask4NV",ours:1,v:["Y","Y","**15.242**","_0.583_","**0.419**","**0.287**","**16.54**","_0.649_","**0.398**"]},
   ], {sep:[2,5], noLabel:true});
 
-  // ---------- radar charts of Table 1, one per dataset (per-dataset min–max rescaling; lower-is-better axes inverted) ----------
+  // ---------- motivation: one example at a time (concept figure split into pieces) ----------
   (function(){
-    const AX = [{k:"PSNR",up:1},{k:"SSIM",up:1},{k:"LPIPS",up:0},{k:"ATE",up:0},{k:"RPEᵣ",up:0},{k:"RPEₜ",up:0},{k:"MEt3R",up:0}];
-    const COL = {"Ask4NV (Ours)":"#e5383b","Matrix3D":"#2b6be0","CAMEO":"#1d9e4a","CAT3D†":"#c98a1b","NVComposer":"#8e5bd6","Omni-View":"#17a2b8","Lance-FT":"#7a7d91"};
-    const num = s => parseFloat(String(s).replace(/[*_]/g, ""));
-    const data = {}; let cur = null; const order = [];
-    nvs.forEach(r => { if (r.ds) { cur = r.ds; order.push(cur); data[cur] = []; } if (r.m in COL) data[cur].push({m: r.m, v: r.v.map(num), ours: !!r.ours}); });
-    const on = {}; Object.keys(COL).forEach(m => on[m] = true);
-    const row = $("radar-row"), leg = $("radar-legend");
-    const S = 360, cx = 180, cy = 186, R = 118, N = AX.length;
-    const pt = (i, r) => { const a = -Math.PI/2 + i * 2*Math.PI/N; return [cx + r*Math.cos(a), cy + r*Math.sin(a)]; };
-    function svgFor(ds){
-      const rows = data[ds]; let s = "";
-      for (let k = 1; k <= 5; k++) { const r = R*k/5; s += `<polygon class="ring${k===5?" outer":""}" points="${Array.from({length:N},(_,i)=>pt(i,r).join(",")).join(" ")}"/>`; }
-      for (let i = 0; i < N; i++) { const [x,y] = pt(i,R); s += `<line class="spoke" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`; const [lx,ly] = pt(i,R+24); const anc = Math.abs(lx-cx) < 8 ? "middle" : (lx > cx ? "start" : "end"); s += `<text class="axlab" x="${lx}" y="${ly+5}" text-anchor="${anc}">${AX[i].k}${AX[i].up?"↑":"↓"}</text>`; }
-      const best = AX.map((a,i) => (a.up?Math.max:Math.min)(...rows.map(r => r.v[i]))), worst = AX.map((a,i) => (a.up?Math.min:Math.max)(...rows.map(r => r.v[i])));
-      const score = (i, v) => worst[i] === best[i] ? 1 : (v - worst[i]) / (best[i] - worst[i]);
-      rows.filter(r => on[r.m]).sort((a,b) => a.ours - b.ours).forEach(r => {
-        const c = COL[r.m]; const pts = r.v.map((v,i) => pt(i, R * score(i, v)));
-        s += `<g class="ds${r.ours?" ours":""}"><polygon points="${pts.map(p=>p.join(",")).join(" ")}" fill="${c}" fill-opacity="${r.ours?0.18:0.06}" stroke="${c}" stroke-width="${r.ours?2.4:1.6}" stroke-linejoin="round"/>`;
-        pts.forEach((p,i) => { s += `<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${c}"><title>${r.m} · ${AX[i].k}: ${r.v[i]}</title></circle>`; }); s += `</g>`; });
-      return `<svg viewBox="0 0 ${S} ${S}" class="radar" role="img" aria-label="${ds} metrics">${s}</svg>`;
+    const EX = [
+      {c:"#e5383b",k:"red",tab:"What color cabinet is next to the toilet?",q:'What <em>color cabinet</em> is next to the toilet?',a:'<em>White</em> cabinet',
+       cap:'An <b>attribute</b> and a <b>spatial relationship</b>: the cabinet&rsquo;s color and its position next to the toilet. The same white cabinet, in the same place, is what the target view has to represent.'},
+      {c:"#e5383b",k:"green",tab:"Where is the stool located?",q:'Where is the <em>stool located</em>?',a:'<em>Left</em> side of bed',
+       cap:'A <b>spatial relationship</b>: where the stool stands relative to the bed. The arrangement has to hold from the new viewpoint, with the stool still on that side of the bed.'},
+      {c:"#e5383b",k:"blue",tab:"What type of chair is placed next to a lamp?",q:'What <em>type of chair</em> is placed next to a lamp?',a:'<em>Arm</em> chair',
+       cap:'An <b>object category</b> and its <b>relationship</b> to a neighbor: an armchair placed next to the lamp. The generated view must keep the chair&rsquo;s identity and its place beside the lamp.'}];
+    const card = document.querySelector("#motiv .card"); if (!card) return;
+    let cur = 0; const img = k => A(`assets/figs/motiv_${k}.jpg`);
+    function render(){
+      const e = EX[cur]; card.style.setProperty("--c", e.c);
+      $("mviews").innerHTML = `<div class="hd"><span>Source views</span><span></span><span>Target views</span></div><div class="g"><img src="${img(e.k+"_src1")}" alt="source view 1"><img src="${img(e.k+"_src2")}" alt="source view 2"><span class="arr">&rarr;</span><img src="${img(e.k+"_tgt1")}" alt="target view 1"><img src="${img(e.k+"_tgt2")}" alt="target view 2"></div>`;
+      $("mqa").innerHTML = `<div class="line"><span class="lab">Q</span><span>${e.q}</span></div><div class="line"><span class="lab">A</span><span>${e.a}</span></div>`;
+      $("mscene").src = img(`scene_${e.k}`);
+      $("mcap").innerHTML = e.cap; $("mcount").textContent = `${cur+1} / ${EX.length}`;
     }
-    function draw(){ row.innerHTML = order.map(ds => `<figure>${svgFor(ds)}<figcaption>${ds}</figcaption></figure>`).join(""); }
-    leg.innerHTML = Object.keys(COL).map(m => `<button class="${m.startsWith("Ask4NV")?"ours":""}" aria-pressed="true" style="--c:${COL[m]}"><i></i>${m}</button>`).join("");
-    leg.querySelectorAll("button").forEach((b,i) => { const m = Object.keys(COL)[i]; b.onclick = () => { on[m] = !on[m]; b.setAttribute("aria-pressed", on[m]); draw(); }; });
-    draw();
+    $("mprev").onclick = () => { cur = (cur - 1 + EX.length) % EX.length; render(); };
+    $("mnext").onclick = () => { cur = (cur + 1) % EX.length; render(); };
+    EX.forEach(e => ["scene_"+e.k, e.k+"_src1", e.k+"_src2", e.k+"_tgt1", e.k+"_tgt2"].forEach(n => { new Image().src = img(n); }));
+    render();
   })();
-
-
 
   // ---------- correspondence examples: pick a scene, see the three models' layer-26 similarity maps for its query token ----------
   (function(){
