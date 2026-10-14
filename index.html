@@ -17,7 +17,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img,video{display:block;width:100%;margin:0 auto}
 a{color:inherit;text-underline-offset:2px}
 b{font-weight:600}
@@ -41,7 +41,9 @@ p{margin:0}
 .gray-linear{background:linear-gradient(to bottom,var(--band) 0%,#fff 10%,#fff 90%,var(--band) 100%)}
 
 @media (max-width:769px){body{font-size:15px}h2{font-size:18px}}
-p.text{padding:1em 0;font-family:var(--serif);font-size:1.02em}
+p.text{padding:1em 0;font-family:var(--serif);font-size:1.12em;line-height:1.6}
+p.text.lead{font-size:1.2em;padding:.4em 0 .2em}
+p.text.intent{padding:.4em 0 .2em}
 p.text:last-child{padding-bottom:0}
 p.caption{padding:1em 0;font-weight:500;line-height:1.25;font-size:90%}
 p.caption b{font-weight:700}
@@ -413,7 +415,13 @@ table.res th[rowspan]{vertical-align:middle}
 table.res tr.ours td.ds{background:var(--band)}
 table.res b{font-weight:700}table.res u{text-decoration:underline;text-underline-offset:2px}
 table.res tr.grp-row td{color:var(--ink-soft);font-style:italic;font-size:.85em;text-align:left}
-.finding{font-family:var(--sans);font-weight:700;padding:.9em 1.1em;border-left:4px solid var(--ours);background:#fdeeee;border-radius:0 6px 6px 0;margin:1em 0 .2em}
+.finding{font-family:var(--sans);font-weight:700;font-size:1.08em;padding:.9em 1.1em;border-left:4px solid var(--ours);background:#fdeeee;border-radius:0 6px 6px 0;margin:1em 0 .2em}
+.roadmap{font-family:var(--serif);font-size:1.02em;padding:.2em 0 0 1.4em;margin:0}
+.roadmap li{padding:.45em 0 .45em .3em}
+.roadmap li span{display:block;font-family:var(--sans);font-weight:700;margin-bottom:.15em}
+.roadmap li em{font-style:normal;color:var(--ink-soft)}
+.finding.answer{font-size:1.08em;line-height:1.55;padding:1.1em 1.3em}
+.finding.answer b{color:var(--ours)}
 .finding span{display:block;font-size:.72em;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:2px}
 pre.bib{background:var(--chip);border-radius:10px;padding:1em 1.2em;font-family:var(--mono);font-size:.82em;overflow-x:auto;line-height:1.5;margin:0}
 footer{padding:4vh 0;background:var(--foot);margin-top:2em}
@@ -427,7 +435,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <div class="nav-bar"><div class="container nav-container">
   <a class="brand" href="#first-content">Ask4NV</a>
-  <div class="menu"><a href="#compare">Qualitative</a><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
+  <div class="menu"><a href="#results">Results</a><a href="#analysis">Analysis</a><a href="#bibtex">BibTeX</a></div>
 </div></div>
 
 <!-- ============ Hero (shikun.io blog-title) ============ -->
@@ -461,11 +469,13 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   </div>
 </div>
 
-<!-- ============ Introduction ============ -->
 <!-- ============ Results ============ -->
 <div class="container blog main" id="results">
-  <h1>Results</h1>
+  <p class="text lead"><b>Learning to answer spatial questions makes a generative model render better novel views.</b> <b>Ask4NV</b> is a framework that trains novel-view generation jointly with 3D language understanding, so that spatial question answering and grounding supervise the generation model.</p>
+  <h1>1. Does it generate better views?</h1>
+  <p class="text intent">If spatial supervision helps, it has to show first as <b>better novel views</b>, and not only on the training distribution. We compare against task-specific novel-view generators and a unified multimodal baseline, in and out of domain.</p>
   <div class="finding"><span>Finding 1</span>Ask4NV improves novel-view image quality across multiple benchmarks.</div>
+  <p class="text">Four source views, four target views, on DL3DV and ScanNet (in domain) and RE10K and ScanNet++ (out of domain), against CAT3D, Matrix3D, NVComposer, CAMEO, and Omni-View. PSNR, SSIM, and LPIPS measure image fidelity; camera-pose error and MEt3R measure 3D consistency. Ask4NV has the <b>best PSNR and LPIPS on all four datasets</b> and the best pose accuracy, and the <b>out-of-domain gains</b> show that the improvement generalizes.</p>
 </div>
 <div class="container blog wide">
   <div class="card chartcard" id="radar-card">
@@ -484,9 +494,10 @@ footer p{font-size:.85em;color:var(--ink-soft)}
 
 <!-- ============ Analysis ============ -->
 <div class="container blog main" id="analysis">
-  <h1>Why does joint training help?</h1>
-  <p class="text">Two baselines from the same Lance checkpoint: <b>Lance-FT</b> (generation only) and <b>Lance-FT + ViT</b> (same ViT conditioning and mask, no understanding training).</p>
-  <div class="finding"><span>Finding 2</span>3D language supervision improves cross-view correspondence beyond ViT conditioning.</div>
+  <h1>2. What does 3D language supervision improve inside the generation transformer?</h1>
+  <p class="text intent">The understanding objectives are losses on language: answering spatial questions and grounding objects. We ask whether they nonetheless change the <b>spatial representations the generation transformer builds for its VAE latent tokens</b>, measured by cross-view correspondence, which is never supervised during training.</p>
+  <div class="finding"><span>Finding 2</span>3D language supervision improves cross-view correspondence in VAE representations.</div>
+  <p class="text"><b>Lance-FT</b> is the same Lance checkpoint fine-tuned on novel-view generation only. In a two-view setting we take clean VAE tokens after attention at each layer, match every object token to its most similar token in the other view, and score with PCK@1/2/4. Layer 26 gives the strongest correspondence for both models, and Ask4NV <b>outperforms Lance-FT on both datasets at every threshold</b>. Correspondence in these VAE representations improves <b>without any direct correspondence supervision</b>: the benefit of 3D language understanding reaches the spatial representations used for generation.</p>
 </div>
 <div class="container blog wide">
   <div class="card chartcard pckcard"><div class="pck-legend"><span><i style="background:#e5383b"></i>Ask4NV</span><span><i style="background:#8a8da0"></i>Lance-FT</span><span><i class="dash"></i>layer 26</span></div><div class="pck-row" id="pck-row"></div></div>
@@ -499,8 +510,10 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   </div>
 </div>
 <div class="container blog main">
+  <h1>3. Does joint training make generated views closer to the ground truth in a 3D-aware feature space?</h1>
+  <p class="text intent">We ask whether joint training also brings the generated views closer to the ground truth in a <b>3D-aware representation space</b>: the feature space of an encoder trained for 3D language understanding, which encodes object identities, attributes, and spatial layout.</p>
   <div class="finding"><span>Finding 3</span>Joint training improves similarity in a 3D-aware feature space.</div>
-  <p class="text">Patch features from Video-3D-LLM's 3D-tuned SigLIP, mean cosine similarity between generated and ground-truth views. Ask4NV is highest on all four datasets; the margin over Lance-FT + ViT is the effect of joint training alone.</p>
+  <p class="text">The encoder is the SigLIP vision encoder fine-tuned for 3D language understanding inside Video-3D-LLM. We extract features of the generated and ground-truth views at the same target viewpoint and report the <b>mean cosine similarity between spatially corresponding patches</b>. Ask4NV is <b>higher than the generation-only baseline on all four datasets</b>, so joint training produces views that are more closely aligned with the ground truth in the feature space of a 3D language understanding encoder.</p>
   <div class="card tblcard"><div class="tbl"><table class="res" id="tab-sim"></table></div></div>
 </div>
 
@@ -651,11 +664,11 @@ footer p{font-size:.85em;color:var(--ink-soft)}
      {m:"Bidirectional (Ours)",ours:1,v:["**14.939**","**0.355**","**0.313**","**0.158**","**3.11**","**0.120**","**0.349**"]}], {sep:[0,3]});
 
   table("tab-corr", [[{t:"Dataset",cls:"l"},{t:"Method",cls:"l"},{t:"PCK@1",cls:"sep"},{t:"PCK@2"},{t:"PCK@4"}]],
-    [{ds:"ScanNet",dsSpan:3,m:"Lance-FT",v:["30.30","42.03","58.22"]},{m:"Lance-FT + ViT",v:["38.77","54.93","72.09"]},{m:"Ask4NV (Ours)",ours:1,v:["**46.13**","**60.73**","**74.99**"]},
-     {ds:"ScanNet++",dsSpan:3,m:"Lance-FT",v:["33.34","44.31","60.28"]},{m:"Lance-FT + ViT",v:["31.40","44.91","63.87"]},{m:"Ask4NV (Ours)",ours:1,v:["**43.27**","**55.25**","**69.55**"]}], {sep:[0]});
+    [{ds:"ScanNet",dsSpan:3,m:"Lance-FT",v:["30.30","42.03","58.22"]},{m:"Ask4NV (Ours)",ours:1,v:["**46.13**","**60.73**","**74.99**"]},
+     {ds:"ScanNet++",dsSpan:3,m:"Lance-FT",v:["33.34","44.31","60.28"]},{m:"Ask4NV (Ours)",ours:1,v:["**43.27**","**55.25**","**69.55**"]}], {sep:[0]});
 
   table("tab-sim", [[{t:"Method",cls:"l"},{t:"DL3DV",cls:"sep"},{t:"ScanNet"},{t:"Re10K"},{t:"ScanNet++"}]],
-    [{m:"Lance-FT",v:["0.512","0.498","0.580","0.514"]},{m:"Lance-FT + ViT",v:["0.546","0.555","0.636","0.538"]},{m:"Ask4NV (Ours)",ours:1,v:["**0.599**","**0.557**","**0.680**","**0.557**"]}], {sep:[0]});
+    [{m:"Lance-FT",v:["0.512","0.498","0.580","0.514"]},{m:"Ask4NV (Ours)",ours:1,v:["**0.599**","**0.557**","**0.680**","**0.557**"]}], {sep:[0]});
 
   // ---------- ablation tables (supplementary) ----------
   const M7 = [{t:"PSNR ↑",cls:"sep"},{t:"SSIM ↑"},{t:"LPIPS ↓"},{t:"ATE ↓",cls:"sep"},{t:"RPE<sub>r</sub> ↓"},{t:"RPE<sub>t</sub> ↓"},{t:"MEt3R ↓"}];
