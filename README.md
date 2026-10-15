@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="https://cvlab-kaist.github.io/Ask4NV/" target="_blank" rel="noopener noreferrer" style="display: inline-block;"><img src="assets/shields/website.svg" alt="Project website"></a>&nbsp;
-  <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener noreferrer" style="display: inline-block;"><img src="assets/shields/paper.svg" alt="Paper"></a>&nbsp;
+  <a href="https://arxiv.org/abs/2610.20610" target="_blank" rel="noopener noreferrer" style="display: inline-block;"><img src="assets/shields/paper.svg" alt="Paper"></a>&nbsp;
   <!-- <a href="https://huggingface.co/xxx" target="_blank" rel="noopener noreferrer" style="display: inline-block;"><img src="assets/shields/weights.svg" alt="Weights"></a>&nbsp; -->
 </p>
 
@@ -42,5 +42,10 @@
 ## Citation
 
 ```bibtex
-TBD
+@article{koo2026ask4nv,
+  title   = {Can Learning to Answer Spatial Questions Improve Novel-View Generation?},
+  author  = {Koo, Jahyeok and Yu, Hyeonseo and Jang, Seungho and Jung, Jaewoo and Kang, Jiwon and Cho, Seokju and Kim, Seungryong},
+  journal = {arXiv preprint arXiv:2610.20610},
+  year    = {2026}
+}
 ```
