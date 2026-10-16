@@ -55,7 +55,7 @@ p.caption.center{text-align:left}
 span.info{letter-spacing:1px;text-transform:uppercase;font-weight:700;font-size:85%}
 /* nav (transparent, absolute like shikun.io) */
 .nav-bar{position:absolute;top:0;left:0;right:0;z-index:50}
-.nav-bar .nav-container{display:flex;justify-content:space-between;align-items:center;padding:2.2em 0}
+.nav-bar .nav-container{display:flex;justify-content:space-between;align-items:center;padding:2.2em 24px}
 .nav-bar .menu{display:flex;gap:2.2em}
 .nav-bar .menu a{text-decoration:none;font-weight:500;font-size:17px;position:relative;padding-bottom:.4em}
 .nav-bar .menu a::after{content:"";position:absolute;left:0;bottom:0;width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:0;transition:opacity .25s}
@@ -480,7 +480,7 @@ footer .container{max-width:calc(var(--col) + 48px)}
 footer p{font-size:.85em;color:var(--ink-soft)}
 .note{font-size:.8em;color:var(--ink-soft);padding:.4em 0}
 @media (max-width:769px){
-  .nav-bar .nav-container{padding:1.1em 0}
+  .nav-bar .nav-container{padding:1.1em 24px}
   .blog-title.single .blog-intro{padding:2vh 0 2vh}
   .blog-intro p.abstract{font-size:1.05em}
   .card{padding:.8rem .8rem .5rem}
