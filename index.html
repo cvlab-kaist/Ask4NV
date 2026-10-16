@@ -18,6 +18,7 @@
 *{box-sizing:border-box}
 
 html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img,video{display:block;width:100%;margin:0 auto}
 a{color:inherit;text-underline-offset:2px}
@@ -63,7 +64,7 @@ span.info{letter-spacing:1px;text-transform:uppercase;font-weight:700;font-size:
 @media (max-width:769px){.nav-bar .menu{display:none}}
 /* hero: gray band, 2 columns (intro | cover) */
 #first-content{background:none;padding-top:7.5em;position:relative;isolation:isolate}
-#first-content::before{content:"";position:absolute;top:0;bottom:0;left:-100vw;right:-100vw;z-index:-1;
+#first-content::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;
   background:
     radial-gradient(circle at 62% 45%, #f7c9d4 0%, #f3a7b8 38%, rgba(243,167,184,0) 72%),
     linear-gradient(120deg, #cfd9fb 0%, #e4e9fd 45%, rgba(228,233,253,0) 100%),
@@ -260,7 +261,7 @@ table.res th[rowspan]:not(.l){text-align:center}
 .gallery .gcells,.gallery .ghead{grid-template-columns:minmax(0,1.4fr) 10px repeat(var(--m,6),minmax(0,1fr)) 14px minmax(0,1fr)}
 .gallery .gap{min-width:0}
 .gallery .gcells+.gcells{margin-top:6px}
-@media (max-width:900px){.gallery{min-width:760px}.ss-nav.prev{left:4px}.ss-nav.next{right:4px}}
+@media (max-width:900px){.ss-nav.prev{left:4px}.ss-nav.next{right:4px}}
 .q-red{color:#e0262c;font-weight:600}.q-green{color:#1d9e4a;font-weight:600}.q-blue{color:#2b7fe0;font-weight:600}
 /* radar chart (Finding 1) */
 .chartcard{padding:1rem 1rem .6rem}
@@ -478,6 +479,29 @@ footer{padding:4vh 0;background:var(--foot);margin-top:2em}
 footer .container{max-width:calc(var(--col) + 48px)}
 footer p{font-size:.85em;color:var(--ink-soft)}
 .note{font-size:.8em;color:var(--ink-soft);padding:.4em 0}
+@media (max-width:769px){
+  .nav-bar .nav-container{padding:1.1em 0}
+  .blog-title.single .blog-intro{padding:2vh 0 2vh}
+  .blog-intro p.abstract{font-size:1.05em}
+  .card{padding:.8rem .8rem .5rem}
+  .motiv{padding:.9rem .9rem .7rem}
+  .mviews .hd{display:none}
+  .mviews .g{grid-template-columns:1fr 1fr;gap:6px}
+  .mviews .arr{display:none}
+  .mviews .g img:nth-child(4),.mviews .g img:nth-child(5){outline:2px solid var(--ours);outline-offset:-2px}
+  .mcap{font-size:.98em}
+  .finding{font-size:1em}
+  p.text{font-size:1.05em}
+  h1{font-size:26px;padding:.8em 0 .4em}
+  .figtitle{font-size:1em}
+  .qwrap{gap:12px}
+  .qside{grid-template-rows:auto auto auto}
+  .qside .cam{min-height:140px;max-height:200px}
+  .dsnav{flex-wrap:wrap}
+  .dsnav .pills button{font-size:.82em;padding:.3em .7em}
+  table.res.big{font-size:.9em}
+  table.res.big th,table.res.big td{padding:6px 8px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -492,7 +516,7 @@ footer p{font-size:.85em;color:var(--ink-soft)}
   <div class="blog-title single">
     <div class="blog-intro">
       <div>
-        <h1 class="title oneline">Can Learning to Answer Spatial Questions Improve<br>Novel-View Generation?</h1>
+        <h1 class="title oneline">Can Learning to Answer Spatial Questions Improve <br>Novel-View Generation?</h1>
         <p class="author">by <a href="https://jahyeok-koo.github.io/" target="_blank" rel="noopener">Jahyeok Koo</a>, <a href="https://hdeori.github.io/" target="_blank" rel="noopener">Hyeonseo Yu</a>, <a href="https://hugeson0235.github.io/" target="_blank" rel="noopener">Seungho Jang</a>, <a href="https://crepejung00.github.io/" target="_blank" rel="noopener">Jaewoo Jung</a>, <a href="https://loggerjk.github.io/" target="_blank" rel="noopener">Jiwon Kang</a>, <a href="https://seokju-cho.github.io/" target="_blank" rel="noopener">Seokju Cho</a>, and <a href="https://cvlab.kaist.ac.kr/members/faculty" target="_blank" rel="noopener">Seungryong Kim</a><sup>†</sup></p>
         <p class="affil">KAIST AI &nbsp;·&nbsp; <sup>†</sup>Corresponding author</p>
         <p class="abstract"><b>Ask4NV</b> learns novel-view generation jointly with 3D language understanding in one unified multimodal model. Spatial question answering and visual grounding supervise the generation transformer through joint self-attention, improving image fidelity and geometric consistency in and out of domain.</p>
